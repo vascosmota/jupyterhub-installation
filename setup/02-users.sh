@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # Add lecturers group
-addgroup lecturers
+addgroup sysadmin
 
 # Add lecturer users
 while IFS=, read NAME PW; do
-    echo "Creating lecturer $NAME"
+    echo "Creating system owner $NAME"
     if [ -z $PW ]; then
-        useradd -s "/bin/bash" -m -N -g users -G sudo,adm,lecturers $NAME
+        useradd -s "/bin/bash" -m -N -g users -G sudo,adm,sysadmin $NAME
     else
-        useradd -s "/bin/bash" -m -N -g users -G sudo,adm,lecturers -p "$PW" $NAME
+        useradd -s "/bin/bash" -m -N -g users -G sudo,adm,sysadmin -p "$PW" $NAME
     fi
 done < <(egrep -v '^#' lecturers.list)
 
@@ -21,7 +21,7 @@ systemctl reload ssh.service
 
 # Add regular users
 while IFS=, read NAME PW; do
-    echo "Creating student $NAME"
+    echo "Creating user $NAME"
     if [ -z $PW ]; then
         useradd -s "/bin/bash" -m -N -g users $NAME
     else
