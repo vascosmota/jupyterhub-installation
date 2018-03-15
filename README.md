@@ -4,6 +4,9 @@ This document explains all the steps for a working JupyterHub installation on Ub
 
 After installing Ubuntu 16.04 LTS x86_64, here's what we did to create a fully working JupyterHub server. All the steps below are also available through a set `bash` scripts in this repository's `setup` [folder](./setup).
 
+## (Optional) Setup Local clone
+To clone the repository localy, you will need to run the commands on [setup/init.sh](./setup/init.sh). These commands will install git and locally clone the repository.
+
 ## Installing system dependencies
 
 [setup/00-sysdeps.sh](./setup/00-sysdeps.sh)
